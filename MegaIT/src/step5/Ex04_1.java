@@ -1,0 +1,85 @@
+package step5;
+
+import java.util.Scanner;
+
+/*
+ * # 숫자이동[3단계] : 클래스 + 변수
+ * 1. 숫자2는 캐릭터이다.
+ * 2. 숫자1을 입력하면, 캐릭터가 왼쪽으로
+ * 	    숫자2를 입력하면, 캐릭터가 오른쪽으로 이동한다.
+ * 3. 숫자 1은 벽이다. 벽을 만나면 이동할 수 없다.
+ * 4. 단, 숫자3을 입력하면, 벽을 격파할 수 있다.
+ * 5. 좌우 끝에 도달해도 계속 반대편으로 이동이 가능하다.
+ * 예) 
+ *  0 0 0 0 0 0 0 2 
+ *  왼쪽(1) 오른쪽(2) : 2
+ *  
+ *  2 0 0 0 0 0 0 0 
+ */
+class Ex08{
+	int[] game = {0, 0, 1, 0, 2, 0, 0, 1, 0};
+}
+
+public class Ex04_1 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);		
+		
+		Ex08 e = new Ex08();
+		
+		int player = 0;
+		for(int i=0; i<e.game.length; i++) {
+			if(e.game[i] == 2) {
+				player = i;
+			}
+		}
+
+		while(true) {
+			
+			for(int i = 0; i < e.game.length; i++) {
+				System.out.print(e.game[i] + " ");
+			}System.out.println();
+			
+			System.out.print("1.left 2.right : ");
+			int move = scan.nextInt();
+			
+			// 좌로 이동하시오
+			if(move == 1) {
+				// 제일 왼쪽끝이 아니고 벽이 있을 시에
+				if(player != 0 && e.game[player - 1] == 1) {
+					System.out.println("3.punch : ");
+					int punch = scan.nextInt();
+					
+					if(punch != 3) {
+						continue;
+					}
+				}
+				e.game[player] = 0;
+				player--;
+				
+				if(player == -1) { // 제일 왼쪽끝일때
+					player = e.game.length-1;
+				}else { // 벽도 없고 평범하게 좌로 이동시
+					player %= e.game.length;
+					// player = player % e.game.length;
+				}
+				
+				e.game[player] = 2;
+			}
+			else if(move == 2) {
+				if(player != e.game.length-1 && e.game[player + 1] == 1) {
+					System.out.print("3.punch : ");
+					int punch = scan.nextInt();
+					if(punch != 3) {
+						continue;
+					}
+				}				
+				e.game[player] = 0;
+				player += 1;
+				player %= e.game.length; // 우로 이동시에는 인덱스 값이 증가하므로 아주 탁원한 코드
+				// 0 1 2 3  4  5  6 
+				// 7 8 9 10 11 12 13 ...
+				e.game[player] = 2;
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;step7_Ex01Q.Re&apos; to &apos;Ex01_Q클래스배열Re&apos;&#x0D;&#x0A;- Original project: &apos;MegaIT&apos;&#x0D;&#x0A;- Original element: &apos;step7_Ex01Q.Re&apos;&#x0D;&#x0A;- Renamed element: &apos;step7_Ex01Q.Ex01_Q클래스배열Re&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Re&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;step7_Ex01Q{Re.java[Re" matchStrategy="1" name="Ex01_Q클래스배열Re" qualified="false" references="true" similarDeclarations="false" stamp="1587960560694" textual="false" version="1.0"/>
+</session>

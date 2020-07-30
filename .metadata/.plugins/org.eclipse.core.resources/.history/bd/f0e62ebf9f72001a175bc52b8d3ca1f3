@@ -1,0 +1,26 @@
+package step7;
+
+import step7_Ex01Q.Student;
+import step7_Ex01Q.Subject;
+
+class Subject{
+	String name;
+	int score;
+}
+class Student{
+	Subject[] subjects;
+	String name;
+}
+
+public class Ex01_7 {
+	public static void main(String[] args) {
+		Student[] st = new Student[3];
+		
+		st[0] = new Student();
+		st[0].subjects = new Subject[3];
+		
+		for(int i = 0; i<3; i++) {
+			st[0].subjects[i] = new Subject();
+		}
+	}
+}
