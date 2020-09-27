@@ -3,7 +3,15 @@ package oop_game1;
 public class MainGame {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		GameManager gameManager = new GameManager();		
+		boolean run = true;
+		while(true) {
+			run = gameManager.changeStage();
+			if(run == false) {
+				break;
+			}
+		}
+		System.out.println("게임오버");
 
 	}
 

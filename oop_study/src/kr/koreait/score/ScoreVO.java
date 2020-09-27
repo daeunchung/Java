@@ -1,6 +1,6 @@
 package kr.koreait.score;
 
-public class ScoreVO {
+public class ScoreVO implements Comparable<ScoreVO>{
 
 	public static int count;	// 객체가 생성될 때 마다 자동응로 1씨 증가시킬 변수
 	private int no;				// 번호, 자동증가
@@ -75,6 +75,16 @@ public class ScoreVO {
 	@Override
 	public String toString() {
 		return String.format("%d %s %3d %3d %3d %3d %6.2f %d", no, name, java, jsp, spring, total, average, rank);
+	}
+	
+//	ArrayList.sort 방법2. model class의 Comparable 구현(Implements)
+	@Override
+	public int compareTo(ScoreVO arg0) {
+		// TODO Auto-generated method stub
+        int targettotal = arg0.getTotal();
+        if(total == targettotal) return 0;
+        else if(total < targettotal) return 1;
+        else return -1;
 	}
 	
 	// %3d : 최소 3자리 이상의 정수

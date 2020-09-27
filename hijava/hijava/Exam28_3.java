@@ -5,7 +5,8 @@ import java.awt.event.*;
 public class Exam28_3 extends Frame{
 	TextField tf;
 	TextArea ta;
-	public class Exam28_3() {
+	
+	public  Exam28_3() {
 		this.setLayout(new BorderLayout());
 		tf = new TextField();
 		ta = new TextArea();
@@ -13,7 +14,8 @@ public class Exam28_3 extends Frame{
 		this.add(tf,"Center");
 		tf.addActionListener(new TxtHandler());
 	}
-	class TxtHandler implements ActionLister{
+	class 
+	TxtHandler implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			ta.append(tf.getText() + "\n");
 			tf.setText("");
